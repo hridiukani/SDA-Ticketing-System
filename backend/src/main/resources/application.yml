@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ticketing}
+    username: ${DB_USERNAME:ticketing}
+    password: ${DB_PASSWORD:ticketing}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+  flyway:
+    enabled: true
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:ZmFrZV9zZWNyZXRfY2hhbmdlX2xhdGVyCg==}
+    validity-ms: ${JWT_VALIDITY_MS:3600000}
+
+notifications:
+  email:
+    enabled: ${EMAIL_ENABLED:false}
+    from: ${EMAIL_FROM:no-reply@example.com}
+
+storage:
+  local:
+    base-path: ${FILE_STORAGE_BASE_PATH:uploads}
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    root: INFO
+
