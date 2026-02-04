@@ -1,15 +1,9 @@
 package com.sda.ticketing.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "sla_policies")
-@Getter
-@Setter
-@NoArgsConstructor
 public class SlaPolicy {
 
     @Id
@@ -31,5 +25,55 @@ public class SlaPolicy {
 
     @Column(nullable = false)
     private boolean active = true;
-}
 
+    public SlaPolicy() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getTargetResolutionHours() {
+        return targetResolutionHours;
+    }
+
+    public void setTargetResolutionHours(int targetResolutionHours) {
+        this.targetResolutionHours = targetResolutionHours;
+    }
+
+    public Priority getApplicablePriority() {
+        return applicablePriority;
+    }
+
+    public void setApplicablePriority(Priority applicablePriority) {
+        this.applicablePriority = applicablePriority;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+}

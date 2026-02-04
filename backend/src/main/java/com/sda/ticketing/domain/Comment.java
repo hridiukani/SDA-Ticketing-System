@@ -1,17 +1,11 @@
 package com.sda.ticketing.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "comments")
-@Getter
-@Setter
-@NoArgsConstructor
 public class Comment {
 
     @Id
@@ -34,5 +28,55 @@ public class Comment {
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt = Instant.now();
-}
 
+    public Comment() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public boolean isInternalComment() {
+        return internalComment;
+    }
+
+    public void setInternalComment(boolean internalComment) {
+        this.internalComment = internalComment;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+}
